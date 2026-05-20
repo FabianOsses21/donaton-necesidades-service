@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="001-create-table-necesidades" author="fabian">
+        <createTable tableName="necesidades">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="recurso_necesitado" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="cantidad" type="INT">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="ubicacion" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="descripcion" type="VARCHAR(500)"/>
+
+            <column name="prioridad" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="estado" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="fecha_reporte" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

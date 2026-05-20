@@ -1,0 +1,13 @@
+com\donaton\necesidades\dto\request\NecesidadRequestDTO.class
+com\donaton\necesidades\dto\response\NecesidadResponseDTO.class
+com\donaton\necesidades\model\Necesidad.class
+com\donaton\necesidades\model\Necesidad$NecesidadBuilder.class
+com\donaton\necesidades\dto\request\NecesidadRequestDTO$NecesidadRequestDTOBuilder.class
+com\donaton\necesidades\repository\NecesidadRepository.class
+com\donaton\necesidades\enums\PrioridadNecesidad.class
+com\donaton\necesidades\NecesidadesServiceApplication.class
+com\donaton\necesidades\mapper\NecesidadMapper.class
+com\donaton\necesidades\dto\response\NecesidadResponseDTO$NecesidadResponseDTOBuilder.class
+com\donaton\necesidades\enums\EstadoNecesidad.class
+com\donaton\necesidades\service\NecesidadService.class
+com\donaton\necesidades\controller\NecesidadController.class
