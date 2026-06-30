@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NecesidadController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">necesidades-service</a> &gt; <a href="index.source.html" class="el_package">com.donaton.necesidades.controller</a> &gt; <span class="el_source">NecesidadController.java</span></div><h1>NecesidadController.java</h1><pre class="source lang-java linenums">package com.donaton.necesidades.controller;
+
+import com.donaton.necesidades.dto.request.NecesidadRequestDTO;
+import com.donaton.necesidades.dto.response.NecesidadResponseDTO;
+import com.donaton.necesidades.enums.EstadoNecesidad;
+import com.donaton.necesidades.service.NecesidadService;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(&quot;/api/v1/necesidades&quot;)
+@RequiredArgsConstructor
+@CrossOrigin(origins = &quot;*&quot;)
+public class NecesidadController {
+
+    private final NecesidadService necesidadService;
+
+    @GetMapping
+    public ResponseEntity&lt;List&lt;NecesidadResponseDTO&gt;&gt; listar() {
+<span class="nc" id="L25">        return ResponseEntity.ok(necesidadService.listar());</span>
+    }
+
+    @GetMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;NecesidadResponseDTO&gt; buscarPorId(@PathVariable(&quot;id&quot;) Long id) {
+<span class="nc" id="L30">        return ResponseEntity.ok(necesidadService.buscarPorId(id));</span>
+    }
+
+    @PostMapping
+    public ResponseEntity&lt;NecesidadResponseDTO&gt; guardar(@Valid @RequestBody NecesidadRequestDTO dto) {
+<span class="nc" id="L35">        return ResponseEntity.status(HttpStatus.CREATED).body(necesidadService.guardar(dto));</span>
+    }
+
+    @PutMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;NecesidadResponseDTO&gt; actualizar(@PathVariable Long id, @Valid @RequestBody NecesidadRequestDTO dto) {
+<span class="nc" id="L40">        return ResponseEntity.ok(necesidadService.actualizar(id, dto));</span>
+    }
+
+    @DeleteMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;Void&gt; eliminar(@PathVariable Long id) {
+<span class="nc" id="L45">        necesidadService.eliminar(id);</span>
+<span class="nc" id="L46">        return ResponseEntity.noContent().build();</span>
+    }
+
+   @PatchMapping(&quot;/{id}/estado/{estado}&quot;)
+        public ResponseEntity&lt;NecesidadResponseDTO&gt; cambiarEstado(
+                @PathVariable(&quot;id&quot;) Long id,
+                @PathVariable(&quot;estado&quot;) EstadoNecesidad estado) {
+<span class="nc" id="L53">    return ResponseEntity.ok(necesidadService.cambiarEstado(id, estado));</span>
+}
+
+    @GetMapping(&quot;/estado/{estado}&quot;)
+    public ResponseEntity&lt;List&lt;NecesidadResponseDTO&gt;&gt; buscarPorEstado(@PathVariable EstadoNecesidad estado) {
+<span class="nc" id="L58">        return ResponseEntity.ok(necesidadService.buscarPorEstado(estado));</span>
+    }
+
+    @GetMapping(&quot;/ubicacion&quot;)
+    public ResponseEntity&lt;List&lt;NecesidadResponseDTO&gt;&gt; buscarPorUbicacion(@RequestParam String valor) {
+<span class="nc" id="L63">        return ResponseEntity.ok(necesidadService.buscarPorUbicacion(valor));</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
