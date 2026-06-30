@@ -1,7 +1,7 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 necesidades-service,com.donaton.necesidades.mapper,NecesidadMapper,0,45,0,0,0,17,0,2,0,2
 necesidades-service,com.donaton.necesidades.controller,NecesidadController,52,0,0,0,9,0,8,0,8,0
-necesidades-service,com.donaton.necesidades.service,NecesidadService,98,16,0,0,28,4,9,1,9,1
+necesidades-service,com.donaton.necesidades.service,NecesidadService,18,96,0,0,8,24,2,8,2,8
 necesidades-service,com.donaton.necesidades,NecesidadesServiceApplication,8,0,0,0,3,0,2,0,2,0
 necesidades-service,com.donaton.necesidades.enums,PrioridadNecesidad,0,27,0,0,0,5,0,1,0,1
 necesidades-service,com.donaton.necesidades.enums,EstadoNecesidad,0,27,0,0,0,5,0,1,0,1

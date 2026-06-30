@@ -19,14 +19,14 @@ public class NecesidadService {
     private final NecesidadRepository necesidadRepository;
 
     public List&lt;NecesidadResponseDTO&gt; listar() {
-<span class="nc" id="L22">        return necesidadRepository.findAll()</span>
-<span class="nc" id="L23">                .stream()</span>
-<span class="nc" id="L24">                .map(NecesidadMapper::toResponseDTO)</span>
-<span class="nc" id="L25">                .toList();</span>
+<span class="fc" id="L22">        return necesidadRepository.findAll()</span>
+<span class="fc" id="L23">                .stream()</span>
+<span class="fc" id="L24">                .map(NecesidadMapper::toResponseDTO)</span>
+<span class="fc" id="L25">                .toList();</span>
     }
 
     public NecesidadResponseDTO buscarPorId(Long id) {
-<span class="nc" id="L29">        return NecesidadMapper.toResponseDTO(obtenerEntidadPorId(id));</span>
+<span class="fc" id="L29">        return NecesidadMapper.toResponseDTO(obtenerEntidadPorId(id));</span>
     }
 
     public NecesidadResponseDTO guardar(NecesidadRequestDTO dto) {
@@ -38,27 +38,27 @@ public class NecesidadService {
     }
 
     public NecesidadResponseDTO actualizar(Long id, NecesidadRequestDTO dto) {
-<span class="nc" id="L41">        Necesidad necesidad = obtenerEntidadPorId(id);</span>
+<span class="fc" id="L41">        Necesidad necesidad = obtenerEntidadPorId(id);</span>
 
-<span class="nc" id="L43">        necesidad.setRecursoNecesitado(dto.getRecursoNecesitado());</span>
-<span class="nc" id="L44">        necesidad.setCantidad(dto.getCantidad());</span>
-<span class="nc" id="L45">        necesidad.setUbicacion(dto.getUbicacion());</span>
-<span class="nc" id="L46">        necesidad.setDescripcion(dto.getDescripcion());</span>
-<span class="nc" id="L47">        necesidad.setPrioridad(dto.getPrioridad());</span>
+<span class="fc" id="L43">        necesidad.setRecursoNecesitado(dto.getRecursoNecesitado());</span>
+<span class="fc" id="L44">        necesidad.setCantidad(dto.getCantidad());</span>
+<span class="fc" id="L45">        necesidad.setUbicacion(dto.getUbicacion());</span>
+<span class="fc" id="L46">        necesidad.setDescripcion(dto.getDescripcion());</span>
+<span class="fc" id="L47">        necesidad.setPrioridad(dto.getPrioridad());</span>
 
-<span class="nc" id="L49">        return NecesidadMapper.toResponseDTO(necesidadRepository.save(necesidad));</span>
+<span class="fc" id="L49">        return NecesidadMapper.toResponseDTO(necesidadRepository.save(necesidad));</span>
     }
 
     public void eliminar(Long id) {
-<span class="nc" id="L53">        Necesidad necesidad = obtenerEntidadPorId(id);</span>
-<span class="nc" id="L54">        necesidadRepository.delete(necesidad);</span>
-<span class="nc" id="L55">    }</span>
+<span class="fc" id="L53">        Necesidad necesidad = obtenerEntidadPorId(id);</span>
+<span class="fc" id="L54">        necesidadRepository.delete(necesidad);</span>
+<span class="fc" id="L55">    }</span>
 
     public NecesidadResponseDTO cambiarEstado(Long id, EstadoNecesidad estado) {
-<span class="nc" id="L58">        Necesidad necesidad = obtenerEntidadPorId(id);</span>
-<span class="nc" id="L59">        necesidad.setEstado(estado);</span>
+<span class="fc" id="L58">        Necesidad necesidad = obtenerEntidadPorId(id);</span>
+<span class="fc" id="L59">        necesidad.setEstado(estado);</span>
 
-<span class="nc" id="L61">        return NecesidadMapper.toResponseDTO(necesidadRepository.save(necesidad));</span>
+<span class="fc" id="L61">        return NecesidadMapper.toResponseDTO(necesidadRepository.save(necesidad));</span>
     }
 
     public List&lt;NecesidadResponseDTO&gt; buscarPorEstado(EstadoNecesidad estado) {
@@ -76,8 +76,8 @@ public class NecesidadService {
     }
 
     private Necesidad obtenerEntidadPorId(Long id) {
-<span class="nc" id="L79">        return necesidadRepository.findById(id)</span>
-<span class="nc" id="L80">                .orElseThrow(() -&gt; new RuntimeException(&quot;Necesidad no encontrada&quot;));</span>
+<span class="fc" id="L79">        return necesidadRepository.findById(id)</span>
+<span class="fc" id="L80">                .orElseThrow(() -&gt; new RuntimeException(&quot;Necesidad no encontrada&quot;));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
